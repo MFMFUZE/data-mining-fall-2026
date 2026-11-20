@@ -72,3 +72,20 @@ data-mining-fall-2026/
 ## Dataset source
 
 Becker, B. & Kohavi, R. (1996). *Adult* [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5XW20
+
+
+## RQ2 ↔ RQ3 integration
+
+The source from the group for Section 3.5 is in `experiments/rq2/discretize_3bins.py`.
+The shared helper `src/project_split.py` matches its missing/duplicate cleaning and last-15% holdout. The RQ3 classifier script uses the same holdout and can optionally use the teammate's three binning algorithms within training-only preprocessing.
+
+> Caution: the existing Part 1 split is **last 15% of cleaned rows**; despite wording in the group Doc, the uploaded code does **not** shuffle the cleaned records. Discuss this with the team before making a final change to the split, because any change would require reproducing all reported numbers.
+
+### Checks
+
+```bash
+python -m pytest -q
+python -m experiments.rq3.compare --config experiments/rq3/smoke_config.json --data data/adult.data --smoke
+```
+
+The original RQ2 script writes `adult_*_3bins.csv` files in the current directory; Git ignores these outputs. Raw data is not tracked.
