@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+.env
+.env.*
+
+# Prevent raw or instructor-provided data from being committed.
+data/*
+!data/README.md
+
+# Local results
+results/rq3/*
+!results/rq3/.gitkeep
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

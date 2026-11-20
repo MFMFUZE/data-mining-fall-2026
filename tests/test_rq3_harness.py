@@ -45,14 +45,14 @@ def test_smoke_generates_only_development_metrics(tmp_path: Path) -> None:
     }
     path = tmp_path / "config.json"
     path.write_text(json.dumps(config))
-    metrics_path = run(path, smoke=True, dataset_override=source)
+    metrics_path = run(path, smoke=True, dataset=source)
     metrics = pd.read_csv(metrics_path)
-    metadata = json.loads((tmp_path / "results" / "SMOKE_ONLY_rq3_run_metadata.json").read_text())
+    metadata = json.loads((tmp_path / "results" / "SMOKE_ONLY_metadata.json").read_text())
     assert set(metrics["model"]) == {
         "decision_tree", "knn", "random_forest", "majority_baseline", "random_baseline"
     }
     assert metrics["accuracy"].between(0, 1).all()
-    assert metrics["f1_macro"].between(0, 1).all()
+    assert metrics["macro_f1"].between(0, 1).all()
     assert metadata["reserved_test_rows"] == 36
-    assert metadata["test_set_used_in_training_or_scoring"] is False
-    assert metadata["development_train_rows"] + metadata["development_validation_rows"] == 204
+    assert metadata["test_evaluated"] is False
+    assert metadata["development_training_rows"] + metadata["development_validation_rows"] == 204
