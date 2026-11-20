@@ -89,3 +89,14 @@ python -m experiments.rq3.compare --config experiments/rq3/smoke_config.json --d
 ```
 
 The original RQ2 script writes `adult_*_3bins.csv` files in the current directory; Git ignores these outputs. Raw data is not tracked.
+
+## Part 1 submission verification (Nov 20, 2026)
+
+The source file contains **32,527 rows**; **2,408** rows include missing values. There are **24 duplicate rows in the raw file**, but **23 duplicates after missing-value removal**. Applying drop-missing then drop-duplicates leaves **30,096 rows**, split as **25,582 development** and **4,514 reserved test** using the **last 15%** of cleaned rows **without an additional shuffle**.
+
+- Validated hyperparameter grid: `experiments/rq1/hyperparameter_grid.py`; Decision Tree **27**, k-NN **36**, Random Forest **27**, **90 distinct configurations** total. The custom third k-NN weight is an actual callable, not the literal string "custom".
+- Code-generated audit figures: `experiments/rq2/make_audit_plots.py` generates 15 paired figures covering every attribute/target in both development and test; numerical panels share histogram edges, categorical panels share categories.
+- [Part 1 distribution appendix (PDF)](https://drive.google.com/file/d/13rDHdgHVi075Pf05NKetGrk4NF2dYrGJ/view)
+- [Part 1 supporting package (ZIP)](https://drive.google.com/file/d/1IqebNVq9-CnOsyG1iboDPxOoTE1KnWxL/view): 15 PNG comparisons, 3 generated discretized CSVs, the original teammate's discretization script, the figure-generation script, a verification manifest, and hyperparameter grid.
+
+Generated data files and graphics stay outside Git and are excluded from version control. The existing Part 1 Google Doc has been updated with the accurate counts and links.

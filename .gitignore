@@ -18,3 +18,10 @@ data/*
 adult_*_3bins.csv
 results/rq2/*
 results/rq3/*
+
+# Local Part 1 audit figures and manifest
+results/part1_figures/
+Part1_distribution_appendix.pdf
+figure_manifest.json
+figures/
+datasets/
