@@ -50,3 +50,12 @@ The code reserves 15% of the dataset as an untouched test set. It then creates a
 | Random Forest | [your output] | [your output] | [your output] | [your output] | [inspect] | [your writing] |
 | Majority baseline | [your output] | [your output] | [your output] | [your output] | — | [your writing] |
 | Random baseline | [your output] | [your output] | [your output] | [your output] | — | [your writing] |
+
+
+## Integration with RQ2 (Nov 2026)
+
+RQ3 now uses `src.project_split.development_and_holdout` to match the uploaded RQ2 script's **drop missing / drop duplicate / last 15%** test split. The original RQ3 random/stratified holdout was not the same as the group's documented procedure. This change affects all development-validation results; the 15% holdout is still not scored.
+
+`experiments/rq3/smoke_config.json` has an optional `discretization_method` field. Leave it `null` to compare original numeric features, or set it to `equal_width`, `equal_depth`, or `kmeans` for the corresponding RQ2 three-bin representation. In each case, bin cut points are fitted inside the training-only pipeline to avoid validation leakage.
+
+Do not treat smoke-test metrics or configurations as final experiment findings. Coordinate the final hyperparameters and development-validation strategy with RQ1.

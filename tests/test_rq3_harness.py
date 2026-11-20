@@ -35,7 +35,7 @@ def test_smoke_generates_only_development_metrics(tmp_path: Path) -> None:
     source = tmp_path / "synthetic_adult.data"
     data.to_csv(source, header=False, index=False)
     config = {
-        "test_split_seed": 12, "validation_split_seed": 14,
+        "validation_split_seed": 14,
         "validation_fraction": 0.2, "output_directory": str(tmp_path / "results"),
         "model_parameters": {
             "decision_tree": {"max_depth": 3, "random_state": 14},
