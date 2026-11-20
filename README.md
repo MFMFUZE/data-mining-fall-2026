@@ -10,9 +10,9 @@ The team will use the provided **Adult Income** dataset to study how model selec
 
 | Research question | Topic | Team member |
 |---|---|---|
-| RQ1 | Model selection: fixed holdout, repeated holdout (3 seeds), 3-fold CV | [Assign name] |
-| RQ2 | Discretization: equal width, equal depth, 1D k-means; bins and continuous features | [Assign name] |
-| RQ3 | Classifiers: Decision Tree, k-NN, Random Forest; performance, runtime, complexity, interpretability | [Assign name] |
+| RQ1 | Model selection: fixed holdout, repeated holdout (3 seeds), 3-fold CV | Annette Garcia |
+| RQ2 | Discretization: equal width, equal depth, 1D k-means; bins and continuous features | Kenneth Currier |
+| RQ3 | Classifiers: Decision Tree, k-NN, Random Forest; performance, runtime, complexity, interpretability | Daniel Bencomo |
 
 All three members must understand the shared pipeline and combined findings.
 
