@@ -15,3 +15,13 @@ python experiments/rq2/discretize_3bins.py data/adult.data
 The result should have 30,096 cleaned rows (25,582 development, 4,514 holdout) for the supplied file. Development-set overall bin agreement: 56.9% equal-width vs equal-depth; 81.6% equal-width vs k-means; 71.2% equal-depth vs k-means.
 
 **Important:** the original script does **not** randomize rows before reserving the last 15%. Documented split labels should reflect this actual behavior. It fits discretization cut points on the full development set, which is appropriate for its Part 1 descriptive output but not a validation run for hyperparameter selection. In RQ3, `TrainFittedDiscretizer` reuses the same algorithms and fits edges on each training portion only.
+
+## Complete Part 1 attribute-distribution appendix
+
+From the repository root, run:
+
+```bash
+python experiments/rq2/make_audit_plots.py data/adult.data results/part1_figures
+```
+
+This creates a 15-page PDF and 15 paired PNG figures, one pair for each of the 15 source columns. The figures use the same cleaned rows and last-15% holdout as the uploaded `discretize_3bins.py`. The full generated appendix and 3 CSV datasets are also available through the Drive links in the root README.
